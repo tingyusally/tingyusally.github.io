@@ -83,10 +83,11 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-plot_ly(grade_boro_count, x = ~boro, y = ~count, color = ~grade, type = "bar") %>%
-  layout(title = "Distribution of Inspection Grades by Borough",
-         xaxis = list(title = "Borough"),
-         yaxis = list(title = "Count"))
+plot_ly(cleaned_data, x = ~longitude, y = ~latitude, type = 'scatter', mode = 'markers',
+        color = ~grade, text = ~paste("Grade:", grade, "<br>Borough:", boro)) %>%
+  layout(title = "Inspection Locations by Grade",
+         xaxis = list(title = "Longitude"),
+         yaxis = list(title = "Latitude"))
 ```
 
 Column {data-width=350}
@@ -95,11 +96,11 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-plot_ly(cleaned_data, x = ~longitude, y = ~latitude, type = 'scatter', mode = 'markers',
-        color = ~grade, text = ~paste("Grade:", grade, "<br>Borough:", boro)) %>%
-  layout(title = "Inspection Locations by Grade",
-         xaxis = list(title = "Longitude"),
-         yaxis = list(title = "Latitude"))
+plot_ly(grade_boro_count, x = ~boro, y = ~count, color = ~grade, type = "bar") %>%
+  layout(title = "Distribution of Inspection Grades by Borough",
+         xaxis = list(title = "Borough"),
+         yaxis = list(title = "Count"))
+
 ```
 
 ### Chart C
