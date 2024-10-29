@@ -7,8 +7,8 @@ navbar:
       href: resume.html
     - text: "About"
       href: about.html
-    - text: "Plotly"
-      href: plotly.html
+    - text: "Ploty"
+      href: ploty.html
     - text: "Dashboard"
       href: dashboard.html
     - icon: fa-envelope fa-lg
