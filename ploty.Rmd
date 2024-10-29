@@ -1,0 +1,100 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+Let's make some plotly plots
+
+```{r}
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(plotly)
+
+get_all_inspections = function(url) {
+  
+  all_inspections = vector("list", length = 0)
+  
+  loop_index = 1
+  chunk_size = 50000
+  DO_NEXT = TRUE
+  
+  while (DO_NEXT) {
+    message("Getting data, page ", loop_index)
+    
+    all_inspections[[loop_index]] = 
+      GET(url,
+          query = list(`$order` = "zipcode",
+                       `$limit` = chunk_size,
+                       `$offset` = as.integer((loop_index - 1) * chunk_size)
+                       )
+          ) %>%
+      content("text") %>%
+      fromJSON() %>%
+      as_tibble()
+    
+    DO_NEXT = dim(all_inspections[[loop_index]])[1] == chunk_size
+    loop_index = loop_index + 1
+  }
+  
+  all_inspections
+  
+}
+
+url = "https://data.cityofnewyork.us/resource/43nn-pn8j.json"
+
+nyc_inspections = 
+  get_all_inspections(url) %>%
+  bind_rows() 
+```
+
+```{r}
+# Select relevant columns and clean the data
+cleaned_data <- nyc_inspections %>%
+  select(boro, inspection_date, critical_flag, latitude, longitude, grade, grade_date) %>%
+  filter(!is.na(boro) & !is.na(inspection_date) & !is.na(latitude) & !is.na(longitude) & !is.na(grade)) %>%
+  mutate(inspection_date = ymd(inspection_date),
+         grade_date = ymd(grade_date))
+```
+
+```{r}
+# Count of grades per borough
+grade_boro_count <- cleaned_data %>%
+  group_by(boro, grade) %>%
+  summarise(count = n()) %>%
+  ungroup()
+```
+
+
+## Bar Plot
+```{r}
+plot_ly(grade_boro_count, x = ~boro, y = ~count, color = ~grade, type = "bar") %>%
+  layout(title = "Distribution of Inspection Grades by Borough",
+         xaxis = list(title = "Borough"),
+         yaxis = list(title = "Count"))
+```
+
+## Scatter map plot for inspection locations
+```{r}
+plot_ly(cleaned_data, x = ~longitude, y = ~latitude, type = 'scatter', mode = 'markers',
+        color = ~grade, text = ~paste("Grade:", grade, "<br>Borough:", boro)) %>%
+  layout(title = "Inspection Locations by Grade",
+         xaxis = list(title = "Longitude"),
+         yaxis = list(title = "Latitude"))
+```
+
+# Box Plot of critical_flag by grade
+```{r}
+plot_ly(cleaned_data, x = ~critical_flag, y = ~grade, type = "box") %>%
+  layout(title = "Distribution of Grades by Critical Violation Flag",
+         xaxis = list(title = "Critical Flag"),
+         yaxis = list(title = "Grade"))
+```
+
+
+
+
+
