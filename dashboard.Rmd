@@ -69,6 +69,13 @@ grade_boro_count <- cleaned_data %>%
   ungroup()
 ```
 
+```{r}
+# Prepare data for heatmap
+heatmap_data <- cleaned_data %>%
+  group_by(boro, grade) %>%
+  summarise(count = n()) %>%
+  ungroup()
+```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
@@ -98,9 +105,9 @@ plot_ly(cleaned_data, x = ~longitude, y = ~latitude, type = 'scatter', mode = 'm
 ### Chart C
 
 ```{r}
-plot_ly(cleaned_data, x = ~critical_flag, y = ~grade, type = "box") %>%
-  layout(title = "Distribution of Grades by Critical Violation Flag",
-         xaxis = list(title = "Critical Flag"),
+plot_ly(heatmap_data, x = ~boro, y = ~grade, z = ~count, type = "heatmap", color = "blue") %>%
+  layout(title = "Heatmap of Grade Distribution by Borough",
+         xaxis = list(title = "Borough"),
          yaxis = list(title = "Grade"))
 ```
 
