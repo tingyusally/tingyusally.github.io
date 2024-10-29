@@ -1,0 +1,66 @@
+---
+title: "Tingyu Qian's resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# EDUCATION
+
+* **Columbia University in the City of New York**, **New York**, **NY**       05/2026
+* *Master of Science. Biostatistics*
+* **Relevant Course:** Biostatistic Methods, Data Science, Principle of Epidemiology, Probability
+
+* **Pennsylvania State University**       06/2024
+* *Bachelor of Science in Statistics, minoring in Mathematics (Dean’s list)*
+* **Relevant Course:** Statistical Modeling, Applied Regression Analysis, Applied Time Series Analysis, Programming and Computation through Python, Data Science Through Statistical Reasoning and Computation through R
+
+# PUBLICATION
+
+* Qian, T., & Bond, M. (2024). Students' Attitudes toward Statistics, Perceived math Ability, and Instructor's Pedagogy Effect on Grades. Joint Statistical Meetings, Portland, Oregon. Zenodo. https://doi.org/10.5281/zenodo.13996526
+
+
+# PROFESSIONAL EXPERIENCE
+
+### Segway-Ninebot
+*Data Analyst Intern* summer 2023
+
+*	Utilized Hive and SQL to analyze over 100,000 event-tracking data samples from the testing team, identifying and addressing abnormal data issues. Collaborated with the testing team to improve event tracking standards.
+
+*	Developed foundational computational logic and created an interactive and linkage Induction Unlock Success Rate Analysis Dashboard using PowerBI, visualizing success rates across various dimensions.
+
+*	Optimized the APP Event Tracking Dashboard by refining key performance indicators to enhance dashboard performance.
+
+### China Securities 
+*Quantitative Analysis Intern* 01/2023-03/2023
+
+* Reduced data dimensions using unsupervised learning methods and identified significant influencing factors with the Multidimensional Optimum Seeking Method using Python.
+
+*	Developed a prediction model with supervised learning techniques, achieving a 95% accuracy rate in estimating stock futures price changes, and optimized the factor library, improving algorithm efficiency by 90%.
+
+
+# Research & Academic Experiences
+
+### Students' Attitudes Toward Statistics, Perceived Math Ability, and Instructor's Pedagogy Effect on Grades 08/2023-09/2024
+
+*	Applied Exploratory Factor Analysis (EFA) and Ordinal Logistic Regression model using R to examine relationships between students' grades and responses to the Guidelines for Assessment and Instruction in Statistics Education (GAISE) questions.
+
+*	Investigated the impact of professors' degrees and teaching methodologies on student performance using Nested Effect analysis and Welch Two Sample t-test.
+
+*	Implemented tree-based models (Decision Tree, Random Forest, XGBoost) and Ordinal Logistic Regression models in R, utilizing Cross-Validation to select the optimal analytical model for students' final grades.
+
+*	Presented findings at the Joint Statistical Meeting in August 2024.
+
+
+### Wine Quality Evaluation Fall 2023
+*	Constructed a correlation matrix using Spearman Rank Correlation Coefficient to analyze relationships between chemical attributes in the wine using R.
+
+*	Selected variables using the Akaike Information Criterion (AIC) method to establish a model exploring the relationships between wine quality and chemical attributes, and to predict wine type.
+
+*	Tested the established model with XGBoost (Classification and Logistic Regression) and evaluated performance using a Confusion Matrix, achieving an accuracy of 99.48%.
+
+
+# SKILLS
+* **Languages:** Mandarin (Native); English (Proficient)
+* **Technical Skills:** Python, R, SAS, MATLAB, SQL, Hive, Microsoft Office, Minitab, Github
