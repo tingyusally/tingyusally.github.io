@@ -10,4 +10,4 @@ output:
 
 This website is for the homework 4 in P8105
 
-I made 3 plotly plots (Bar Plot, Scatter Plot, Box Plot) for the dataset NYC Restaurant Inspection Results.
+I made 3 plotly plots (Bar Plot, Scatter Plot, Heat Map) for the dataset NYC Restaurant Inspection Results.
