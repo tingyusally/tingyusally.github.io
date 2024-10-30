@@ -9,7 +9,7 @@ output:
 # Hi everyone, Welcome to Tingyu Qian's website.
 I am a first-year MS student at Columbia University Mailman School of Public Health Department of Biostatistics.
 
-This is my cute parrot
+This is my cute parrot.
 <center>
 ![](IMG_9369.jpeg){width=30%}
 </center>
