@@ -12,6 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Here](https://github.com/tingyusally) is my Github link
 
-[Here](tq2171@cumc.columbia.edu) is my email
+[Here](mailto:<tq2171@cumc.columbia.edu>) is my email
 
 [Here](https://www.linkedin.com/in/tingyu-qian-a55521289/) is my LinkedIn
