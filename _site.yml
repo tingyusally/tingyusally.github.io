@@ -9,6 +9,8 @@ navbar:
       href: about.html
     - text: "Plotly"
       href: plotly.html
+    - text: "Links"
+      href: link.html
     - text: "Dashboard"
       href: dashboard.html
     - icon: fa-envelope fa-lg
