@@ -8,7 +8,7 @@ output:
 
 Let's make some plotly plots
 
-```{r}
+```{r,warning=FALSE, message=FALSE}
 library(tidyverse)
 library(httr)
 library(jsonlite)
@@ -51,7 +51,7 @@ nyc_inspections =
   bind_rows() 
 ```
 
-```{r}
+```{r,warning=FALSE, message=FALSE}
 # Select relevant columns and clean the data
 cleaned_data <- nyc_inspections %>%
   select(boro, inspection_date, critical_flag, latitude, longitude, grade, grade_date) %>%
@@ -60,7 +60,7 @@ cleaned_data <- nyc_inspections %>%
          grade_date = ymd(grade_date))
 ```
 
-```{r}
+```{r,warning=FALSE, message=FALSE}
 # Count of grades per borough
 grade_boro_count <- cleaned_data %>%
   group_by(boro, grade) %>%
@@ -68,7 +68,7 @@ grade_boro_count <- cleaned_data %>%
   ungroup()
 ```
 
-```{r}
+```{r,warning=FALSE, message=FALSE}
 # Prepare data for heatmap
 heatmap_data <- cleaned_data %>%
   group_by(boro, grade) %>%
